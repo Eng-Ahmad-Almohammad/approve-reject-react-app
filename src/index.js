@@ -1,17 +1,45 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDom from 'react-dom'
+import faker from 'faker'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import CommentDetali from './CommentDetail'
+import ArrovalCard from './ApprovalCard'
+const App = function () {
+    return (
+        <div className="ui container comments">
+            <ArrovalCard>
+                <h4>Warning!</h4>
+                Are you sure?
+            </ArrovalCard>
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+            <ArrovalCard>
+                <CommentDetali
+                    author={faker.name.firstName()}
+                    date='Today at 4:45PM'
+                    image={faker.image.avatar()}
+                    comment={faker.lorem.sentence()}
+                />
+            </ArrovalCard>
+
+            <ArrovalCard>
+                <CommentDetali
+                    author={faker.name.firstName()}
+                    date='Today at 2:05PM'
+                    image={faker.image.avatar()}
+                    comment={faker.lorem.sentence()}
+                />
+            </ArrovalCard>
+
+            <ArrovalCard>
+                <CommentDetali
+                    author={faker.name.firstName()}
+                    date='Today at 6:30PM'
+                    image={faker.image.avatar()}
+                    comment={faker.lorem.sentence()}
+                />
+            </ArrovalCard>
+        </div>
+    )
+}
+
+ReactDom.render(<App />, document.getElementById('root'))
